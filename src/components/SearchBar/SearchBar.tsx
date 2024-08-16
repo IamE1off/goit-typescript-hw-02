@@ -1,12 +1,17 @@
 import { IoSearchOutline } from "react-icons/io5";
-import css from "./SearchBar.module.css";
 import toast, { Toaster } from 'react-hot-toast';
+import { FormEvent } from "react";
+import css from "./SearchBar.module.css";
 
+interface SearchProps {
+    onSearch: (query: string) => void
+}
 
-export default function SearchBar({ onSearch }) {
-    const handleSubmit = (event) => {
+export default function SearchBar({ onSearch }: SearchProps) {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const query = event.target.elements.searchInput.value.trim();
+        const form = event.currentTarget
+        const query = (form.elements.namedItem('searchInput') as HTMLInputElement).value.trim()
         if (query) {
             onSearch(query);
             console.log(query);
@@ -14,7 +19,7 @@ export default function SearchBar({ onSearch }) {
         if (query === "") {
             toast("Search field mustn't be empty!")
         }
-        event.target.reset();
+        form.reset()
     };
 
     return (

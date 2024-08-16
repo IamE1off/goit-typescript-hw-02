@@ -1,8 +1,20 @@
-
 import ReactModal from 'react-modal';
 import css from "./ImageModal.module.css"
 
-export default function ImageModal({ isOpen, onRequestClose, img }) {
+interface PhotoModal {
+    urls: {
+        regular: string;
+    };
+    alt_description: string;
+}
+
+interface ModalProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+    img: PhotoModal | null;
+}
+
+export default function ImageModal({ isOpen, onRequestClose, img }: ModalProps) {
     return (
         <ReactModal
             isOpen={isOpen}
