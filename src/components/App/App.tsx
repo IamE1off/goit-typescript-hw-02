@@ -1,17 +1,15 @@
-
 import { useEffect, useState } from "react";
 import { fetchPhotos } from "../../photos-api";
 import toast, { Toaster } from 'react-hot-toast';
 import { Photo } from "./App.types";
 import { FetchPhotosResponse } from "./App.types";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SeachBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import ImageModal from "../ImageModal/ImageModal";
 import css from "./App.module.css";
-import React from "react";
 
 export default function App() {
   const [photos, setPhotos] = useState<Photo[]>([]);
