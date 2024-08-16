@@ -11,6 +11,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import ImageModal from "../ImageModal/ImageModal";
 import css from "./App.module.css";
+import React from "react";
 
 export default function App() {
   const [photos, setPhotos] = useState<Photo[]>([]);
